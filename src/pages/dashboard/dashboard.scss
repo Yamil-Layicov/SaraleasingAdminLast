@@ -1,0 +1,16 @@
+
+.adminHome {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(12rem, auto);
+  grid-auto-flow: dense;
+
+  .box {
+    padding:1rem;
+    border-radius: 0.7rem;
+    border: 1px solid gray;
+    width: 100%;
+  }
+}

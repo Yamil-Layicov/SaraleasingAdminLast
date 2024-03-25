@@ -1,0 +1,67 @@
+.comments {
+    padding: 1.5rem;
+    .insideCategories {
+      padding: 1.5rem;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      .sliderHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0.7rem;
+  
+        h4 {
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-weight: 500;
+  
+        thead {
+          background-color: #f8fafc;
+          color: #94a3b8;
+  
+          th {
+            font-weight: 600;
+          }
+        }
+        td,
+        th {
+          border: 1px solid #ebebebac;
+          text-align: left;
+          padding: 0.5rem;
+        }
+        tbody {
+          font-size: 0.9rem;
+          .idTd{
+            width: 2rem;
+            text-align: center;
+          }
+          .imgsTd{
+            width: 17rem;
+            img {
+              width: 4rem;
+              height: 4rem;
+              border-radius: 0.2rem;
+            }
+          }
+          
+          .actionBtnsTd {
+            width: 8rem;
+            .actionBtns {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 1rem;
+              button {
+                padding: 0.3rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,117 @@
+.mainLogin {
+  width: 100%;
+
+  .login {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .intoLogin {
+      width: 26rem;
+      border: 1px solid gray;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        .inputBox {
+          position: relative;
+          input {
+            padding: 0.7rem;
+            outline: none;
+            border-radius: 0.7rem;
+            font-weight: 500;
+            border: 1px solid #9a9696;
+            width: 100%;
+            font-size: 1rem;
+          }
+          small {
+            color: red;
+            position: absolute;
+            bottom: -1.3rem;
+            left: 0.3rem;
+            font-size: 0.7rem;
+          }
+          .inputError {
+            border: 1px solid red !important;
+          }
+          .inputEyes {
+            position: absolute;
+            top: 0.45rem;
+            right: 1rem;
+            color: #9a9696;
+            font-size: 1.3rem;
+            cursor: pointer;
+          }
+        }
+        button {
+          border-radius: 1rem;
+          border: 1px solid #10d0a1;
+          background: #10d0a1;
+          color: #fff;
+          font-family: "Inter", sans-serif;
+          font-size: 1rem;
+          font-weight: 600;
+          padding: 0.7rem 0;
+          margin-top: 1rem;
+          margin-bottom: 0.5rem;
+        }
+      }
+      h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: #231781;
+        text-align: center;
+        padding-bottom: 1rem;
+      }
+    }
+  }
+
+  // @media (max-width: 600px) {
+  //   .headerBox {
+  //     height: 0px;
+  //   }
+  //   .login {
+  //     background-color: transparent;
+  //     height: 100dvh;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: normal;
+  //     width: 100%;
+  //     .intoLogin {
+  //       border-radius: 0;
+  //       padding: 16px;
+  //       width: 100%;
+  //       h3 {
+  //         text-align: left;
+  //         padding-top: 40px;
+  //         font-size: 22px;
+  //       }
+  //       form {
+  //         .inputBox {
+  //           input {
+  //             padding: 16px;
+  //             border-radius: 10px;
+  //             font-size: 20px;
+  //           }
+  //           .inputEyes {
+  //             top: 15px;
+  //             right: 20px;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+}

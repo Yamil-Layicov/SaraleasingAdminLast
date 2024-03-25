@@ -1,0 +1,53 @@
+.accordionContent {
+  padding-bottom: 0.4rem;
+  padding-right: 1rem;
+  .headerText {
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      color: var(--hover-color);
+      cursor: pointer;
+    }
+    .leftSide {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      span {
+        padding-top: 0.2rem;
+      }
+
+      .icon {
+        font-size: 1.2rem;
+      }
+    }
+
+    .icon2 {
+      font-size: 0.9rem;
+    }
+  }
+
+  .secondrayText {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    .secondrayTextInside {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgb(96, 96, 96);
+      padding: 0.3rem 0 0 1rem;
+
+      .linkNav{
+      transition: all 0.2s ease-in-out;
+        &:hover{
+          color: var(--hover-color);
+        }
+      }
+      
+    }
+  }
+}

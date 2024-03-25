@@ -1,0 +1,22 @@
+.button {
+  border: 0.03rem solid #afafaf;
+  padding: 0.6rem 3rem;
+  display: inline-block;
+  border-radius: 0.37rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.center{
+  position: absolute;
+  bottom: -5rem;
+  left: 50%;
+  transform: translate( -50%, 0rem);
+}
+
+.border{
+  border: none;
+  padding: 0;
+}

@@ -1,0 +1,53 @@
+.sidebar {
+  position: sticky;
+  width: 18rem;
+  max-height: 100vh;
+  overflow-y: scroll;
+  padding-top: 1.5rem;
+  font-weight: 500;
+  background-color: #F8FAFC;
+
+  .header {
+    text-align: center;
+    img {
+      width: 6rem;
+    }
+  }
+  .sidebarBody {
+    padding: 1rem 2rem 2rem 2rem;
+    h5 {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: rgb(31, 31, 209);
+      padding-top: 1rem;
+      padding-bottom: 0.2rem;
+    }
+    .sidebarBodyInside {
+      display: flex;
+      flex-direction: column;
+
+      .link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding-top: 0.5rem;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          color: var(--hover-color);
+          cursor: pointer;
+        }
+        .icon {
+          font-size: 1.2rem;
+        }
+        .projectIcon{
+          font-size: 1.1rem;
+        }
+        span{
+          font-weight: 600;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

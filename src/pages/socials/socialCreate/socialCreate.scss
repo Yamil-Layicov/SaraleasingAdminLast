@@ -1,0 +1,91 @@
+.socialCreate {
+    padding: 1.5rem;
+    .insideSlider {
+      padding: 1.5rem;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      .sliderHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0.7rem;
+  
+        h4 {
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+        .newSliderBtn {
+          padding: 6px 12px;
+          border-radius: 12px;
+          background-color: #10b981;
+          color: white;
+          display: flex;
+          gap: 0.3rem;
+          font-weight: 600;
+  
+          span {
+            &:first-child {
+              font-size: 1rem;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      .imageFile {
+        .logoBox {
+          label {
+            cursor: pointer;
+            .logo {
+              font-size: 1.5rem;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              padding-bottom: 10px;
+  
+              .text {
+                font-size: 20px;
+              }
+            }
+          }
+          img {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 5px;
+          }
+          input {
+            display: none;
+          }
+        }
+      }
+      .langBoxes {
+        form {
+          .formBoxes {
+            display: flex;
+            justify-content: space-between;
+            .formBox {
+              display: flex;
+              flex-direction: column;
+              textarea{
+                padding: 0.5rem;
+                border-radius: 0.2rem;
+              }
+              label{
+                padding: 0.5rem 0;
+              }
+            }
+          }
+          .addBtn{
+            text-align: center;
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            button{
+              border: 1px   solid green;
+              padding: 6px 12px;
+              border-radius: 5px;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+  

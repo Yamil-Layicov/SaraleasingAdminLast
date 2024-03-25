@@ -1,0 +1,59 @@
+.commentsCreate {
+    padding: 1.5rem;
+    .insideCategory {
+      padding: 1.5rem;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      .categoryHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0.7rem;
+  
+        h4 {
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+      }
+      .langBoxes {
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+          .formDate{
+            input{
+              padding: 0.6rem;
+              border-radius: 0.4rem;
+            }
+          }
+          .formBoxes {
+            display: flex;
+            justify-content: space-between;
+            .formBox {
+              display: flex;
+              flex-direction: column;
+              textarea{
+                padding: 0.5rem;
+                border-radius: 0.4rem;
+                
+              }
+              label{
+                padding: 0.5rem 0;
+              }
+            }
+          }
+          .addBtn{
+            text-align: center;
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            button{
+              border: 1px   solid green;
+              padding: 6px 12px;
+              border-radius: 5px;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+  

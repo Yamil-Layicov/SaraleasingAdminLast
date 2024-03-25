@@ -1,0 +1,93 @@
+.characteristic {
+    padding: 1.5rem;
+    .insideCategories {
+      padding: 1.5rem;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      .sliderHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0.7rem;
+  
+        h4 {
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+        .newSliderBtn {
+          padding: 6px 12px;
+          border-radius: 12px;
+          background-color: #10b981;
+          color: white;
+          display: flex;
+          gap: 0.3rem;
+          font-weight: 500;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+          &:hover{
+            background-color: transparent;
+            color: #10b981;
+          }
+          
+  
+          span {
+            &:first-child {
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+      .selectProductBtn{
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-weight: 500;
+  
+        thead {
+          background-color: #f8fafc;
+          color: #94a3b8;
+  
+          th {
+            font-weight: 600;
+          }
+        }
+        td,
+        th {
+          border: 1px solid #ebebebac;
+          text-align: left;
+          padding: 0.5rem;
+        }
+        tbody {
+          font-size: 0.9rem;
+          .idTd{
+            width: 2rem;
+            text-align: center;
+          }
+          .imgsTd{
+            width: 17rem;
+            img {
+              width: 4rem;
+              height: 4rem;
+              border-radius: 0.2rem;
+            }
+          }
+          
+          .actionBtnsTd {
+            width: 8rem;
+            .actionBtns {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 1rem;
+              button {
+                padding: 0.3rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
