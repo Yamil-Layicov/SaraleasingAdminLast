@@ -1,0 +1,65 @@
+.cooperation {
+  padding: 1.5rem;
+  .insideSlider {
+    padding: 1.5rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        .imageFile {
+          .logoBox {
+            label {
+              cursor: pointer;
+              .logo {
+                font-size: 1.2rem;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding-bottom: 0.8rem;
+
+                .text {
+                  font-size: 1rem;
+                }
+              }
+            }
+            img {
+              width: 8rem;
+              height: 8rem;
+              border-radius: 5px;
+            }
+            input {
+              display: none;
+            }
+          }
+        }
+        .formBoxes {
+          display: flex;
+          justify-content: space-between;
+          .formBox {
+            display: flex;
+            flex-direction: column;
+            textarea {
+              padding: 0.8rem;
+              border-radius: 0.2rem;
+              font-size: 0.8rem;
+            }
+            label {
+              padding: 0.5rem 0;
+            }
+          }
+        }
+        .addBtn {
+          text-align: center;
+          padding-top: 2rem;
+          padding-bottom: 1rem;
+          button {
+            border: 1px solid green;
+            padding: 6px 12px;
+            border-radius: 5px;
+            background-color: transparent;
+          }
+        }
+      }
+  }
+}

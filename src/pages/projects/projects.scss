@@ -1,0 +1,89 @@
+.projects {
+  padding: 1.5rem;
+  .insideSlider {
+    padding: 1.5rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    .sliderHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.7rem;
+
+      h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+      .newSliderBtn {
+        padding: 6px 12px;
+        border-radius: 12px;
+        background-color: #10b981;
+        color: white;
+        display: flex;
+        gap: 0.3rem;
+        font-weight: 600;
+
+        span {
+          &:first-child {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-weight: 500;
+
+      thead {
+        background-color: #f8fafc;
+        color: #94a3b8;
+
+        th {
+          font-weight: 600;
+        }
+        .idTh{
+          text-align: center;
+        }
+        .imgTh{
+          text-align: center;
+        }
+      }
+      td,
+      th {
+        border: 1px solid #ebebebac;
+        text-align: left;
+        padding: 0.5rem;
+      }
+      tbody {
+        font-size: 0.9rem;
+        .idTd{
+          width: 2rem;
+          text-align: center;
+        }
+        .imgsTd{
+          width: 7rem;
+          text-align: center;
+          img {
+            width: 3rem;
+            height: 3rem;
+          }
+        }
+        .actionBtnsTd {
+          width: 8rem;
+          .actionBtns {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            button {
+              padding: 0.3rem;
+            }
+          }
+        }
+        .contentTd {
+          
+        }
+      }
+    }
+  }
+}

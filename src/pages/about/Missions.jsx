@@ -18,7 +18,7 @@ const Missions = () => {
         setaz_text(response.data.az_text);
         seten_text(response.data.en_text);
         setru_text(response.data.ru_text);
-        setImage(response?.data?.image);
+        setPreviousImage(response?.data?.image);
       } catch (error) {
         toast.error(error);
       }
@@ -49,7 +49,9 @@ const Missions = () => {
     formData.append("az_text", az_text);
     formData.append("en_text", en_text);
     formData.append("ru_text", ru_text);
-    formData.append("image", image);
+    if (image) {
+      formData.append("image", image);
+    }
 
     try {
       await api.post("missions ", formData);

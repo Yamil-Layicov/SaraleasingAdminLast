@@ -18,7 +18,7 @@ const Accordion = ({ sidebarData }) => {
 
   return (
     <div>
-      {sidebarData.map((sData) => (
+      {sidebarData?.map((sData) => (
         <div key={sData.id} className="accordionContent">
           <div className="headerText" onClick={() => handleLink(sData.id)}>
             <div className="leftSide">

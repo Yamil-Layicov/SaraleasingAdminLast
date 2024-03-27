@@ -24,14 +24,14 @@ const SliderEdit = () => {
         setAz_text(response.data.az_text);
         setEn_text(response.data.en_text);
         setRu_text(response.data.ru_text);
-        setImage(response?.data?.image);
+        setPreviousImage(response?.data?.image);
       } catch (error) {
         toast.error(error);
       }
     };
 
     fetchSettings();
-  }, []);
+  }, [id]);
 
   
 
@@ -60,7 +60,9 @@ const SliderEdit = () => {
       formData.append("az_text", az_text);
       formData.append("en_text", en_text);
       formData.append("ru_text", ru_text);
-      formData.append("image", image);
+      if (image) {
+        formData.append("image", image);
+      }
 
       const response = await api.post(`sliders/${id}`,formData);
 

@@ -1,27 +1,27 @@
-import "./about.scss";
+import "./cooperation.scss";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import api from "../../api/posts";
 import { useMutation } from "@tanstack/react-query";
 
-const About = () => {
+const Cooperation = () => {
   const [image, setImage] = useState(null);
   const [previousImage, setPreviousImage] = useState(null);
-  const [azContent, setAzContent] = useState("");
-  const [enContent, setEnContent] = useState("");
-  const [ruContent, setRuContent] = useState("");
+  const [az_text, setAz_text] = useState("");
+  const [en_text, setEn_text] = useState("");
+  const [ru_text, setRu_text] = useState("");
 
   useEffect(() => {
     const fetchAbout = async () => {
       try {
-        const response = await api.get("about");
-        setAzContent(response.data.az_content);
-        setEnContent(response.data.en_content);
-        setRuContent(response.data.ru_content);
+        const response = await api.get("cooperation");
+        setAz_text(response.data.az_text);
+        setEn_text(response.data.en_text);
+        setRu_text(response.data.ru_text);
         setPreviousImage(response.data.image);
       } catch (error) {
-        toast.error("Haqqımızda məlumatları gətirilən zaman xəta baş verdi");
+        toast.error("Məlumatları gətirilən zaman xəta baş verdi");
       }
     };
 
@@ -45,15 +45,15 @@ const About = () => {
 
   const editAbout = async () => {
     const formData = new FormData();
-    formData.append("az_content", azContent);
-    formData.append("en_content", enContent);
-    formData.append("ru_content", ruContent);
+    formData.append("az_text", az_text);
+    formData.append("en_text", en_text);
+    formData.append("ru_text", ru_text);
     if (image) {
       formData.append("image", image);
     }
 
     try {
-      await api.post("about", formData);
+      await api.post("cooperation", formData);
       toast.success("Məlumatlar redaktə olundu");
     } catch (error) {
       toast.error("Məlumatlar redaktə olunmadı");
@@ -68,7 +68,7 @@ const About = () => {
   };
 
   return (
-    <div className="about">
+    <div className="cooperation">
       <div className="insideSlider">
         <h5>Haqqımızda</h5>
         <hr />
@@ -101,8 +101,8 @@ const About = () => {
                 id="azText"
                 cols="45"
                 rows="8"
-                value={azContent}
-                onChange={(e) => setAzContent(e.target.value)}
+                value={az_text}
+                onChange={(e) => setAz_text(e.target.value)}
               ></textarea>
             </div>
             <div className="formBox">
@@ -112,8 +112,8 @@ const About = () => {
                 id="enText"
                 cols="45"
                 rows="8"
-                value={enContent}
-                onChange={(e) => setEnContent(e.target.value)}
+                value={en_text}
+                onChange={(e) => setEn_text(e.target.value)}
               ></textarea>
             </div>
             <div className="formBox">
@@ -123,8 +123,8 @@ const About = () => {
                 id="ruText"
                 cols="45"
                 rows="8"
-                value={ruContent}
-                onChange={(e) => setRuContent(e.target.value)}
+                value={ru_text}
+                onChange={(e) => setRu_text(e.target.value)}
               ></textarea>
             </div>
           </div>
@@ -137,4 +137,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Cooperation;

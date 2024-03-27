@@ -4,16 +4,13 @@ import { AiOutlineAppstore } from "react-icons/ai";
 import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlineDatabase } from "react-icons/ai";
 import { MdOutlineMedicalServices } from "react-icons/md";
-import { IoSettingsOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import { BiMessageDetail } from "react-icons/bi";
 import { IoNewspaperOutline } from "react-icons/io5";
 import { GrProjects } from "react-icons/gr";
 import { FaRegAddressCard } from "react-icons/fa";
-import { MdOutlineContactPhone } from "react-icons/md";
 import { IoShareSocialSharp } from "react-icons/io5";
-
-
+import { FaUsersBetweenLines } from "react-icons/fa6";
 
 
 
@@ -78,14 +75,22 @@ const Sidebar = () => {
             <IoNewspaperOutline className="icon" />
             <span>Xəbərlər</span>
           </NavLink>
-          {/* <NavLink
+          <NavLink
             style={({ isActive }) => ({ color: isActive ? "#C89C4E" : "" })}
-            to="layihələr"
+            to="projects"
             className="link"
           >
             <GrProjects className="icon projectIcon" />
             <span>Layihələr</span>
-          </NavLink> */}
+          </NavLink>
+          <NavLink
+            style={({ isActive }) => ({ color: isActive ? "#C89C4E" : "" })}
+            to="cooperation"
+            className="link"
+          >
+            <FaUsersBetweenLines className="icon projectIcon" />
+            <span>Əməkdaşlıq</span>
+          </NavLink>
           <NavLink
             style={({ isActive }) => ({ color: isActive ? "#C89C4E" : "" })}
             to="karyera"
@@ -103,14 +108,6 @@ const Sidebar = () => {
             <span>Sosial şəbəkələr</span>
           </NavLink>
           <h5>LAYOUT</h5>
-          {/* <NavLink
-            style={({ isActive }) => ({ color: isActive ? "#C89C4E" : "" })}
-            to="settings"
-            className="link"
-          >
-            <IoSettingsOutline className="icon" />
-            <span>Tənzimləmələr</span>
-          </NavLink> */}
           <NavLink
             style={({ isActive }) => ({ color: isActive ? "#C89C4E" : "" })}
             to="messages"

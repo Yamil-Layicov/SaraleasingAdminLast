@@ -19,7 +19,7 @@ const SocialEdit = () => {
       try {
         const response = await api.get(`socials/${id}`);
         setUrl(response.data.url);
-        setImage(response?.data?.logo );
+        setPreviousImage(response?.data?.logo );
       } catch (error) {
         toast.error(error);
       }
@@ -53,7 +53,9 @@ const SocialEdit = () => {
     try {
       const formData = new FormData();
       formData.append("url", url);
-      formData.append("logo", image);
+      if(image){
+        formData.append("logo", image);
+      }
 
       const response = await api.post(`socials/${id}`,formData);
 

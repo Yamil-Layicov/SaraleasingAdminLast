@@ -2,36 +2,34 @@ import { useNavigate, useParams } from "react-router-dom";
 import { IoMdReturnLeft } from "react-icons/io";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
-import api from "../../../api/posts";
-import { useMutation } from "@tanstack/react-query";
-import { toast } from "react-hot-toast";
-import NavButton from "../../../ui/navButton/NavButton";
+import NavButton from "../../ui/navButton/NavButton";
+import api from "../../api/posts";
+import toast from "react-hot-toast";
 
-const NewsCreate = () => {
+const ProjectsEdit = () => {
   const [image, setImage] = useState(null);
   const [previousImage, setPreviousImage] = useState("");
 
-  const [az_text, setAzText] = useState("");
-  const [en_text, setEnText] = useState("");
-  const [ru_text, setRuText] = useState("");
   const [az_title, setAz_title] = useState("");
   const [en_title, setEn_title] = useState("");
   const [ru_title, setRu_title] = useState("");
-
-  const navigate = useNavigate();
+  const [az_content, setAz_content] = useState("");
+  const [en_content, setEn_content] = useState("");
+  const [ru_content, setRu_content] = useState("");
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSettings = async () => {
       try {
-        const response = await api.get(`news/${id}`);
-        setAzText(response.data.az_text);
-        setEnText(response.data.en_text);
-        setRuText(response.ru_text);
+        const response = await api.get(`projects/${id}`);
         setAz_title(response.data.az_title);
         setEn_title(response.data.en_title);
         setRu_title(response.data.ru_title);
+        setAz_content(response.data.az_content);
+        setEn_content(response.data.en_content);
+        setRu_content(response.data.ru_content);
         setPreviousImage(response?.data?.image);
       } catch (error) {
         toast.error(error);
@@ -39,7 +37,9 @@ const NewsCreate = () => {
     };
 
     fetchSettings();
-  }, []);
+  }, [id]);
+
+  
 
   const handleImage = (e) => {
     const file = e.target.files[0];
@@ -58,39 +58,37 @@ const NewsCreate = () => {
     }
   };
 
-  const editNews = async () => {
-    const formData = new FormData();
-    formData.append("az_text", az_text);
-    formData.append("en_text", en_text);
-    formData.append("ru_text", ru_text);
-    formData.append("az_title", az_title);
-    formData.append("en_title", en_title);
-    formData.append("ru_title", ru_title);
-    if(image){
-      formData.append("image", image);
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     try {
-      await api.post(`news/${id}`, formData);
-      navigate("/news");
-      toast.success("Redaktə olundu");
+      const formData = new FormData();
+      formData.append("az_title", az_title);
+      formData.append("en_title", en_title);
+      formData.append("ru_title", ru_title);
+      formData.append("az_content", az_content);
+      formData.append("en_content", en_content);
+      formData.append("ru_content", ru_content);
+      if (image) {
+        formData.append("image", image);
+      }
+
+      const response = await api.post(`projects/${id}`,formData);
+
+      if (response) {
+        toast.success("Redaktə olundu");
+        navigate(-1);
+      }
     } catch (error) {
-      toast.error("Redaktə olumadı");
+      toast.error("Xəta baş verdi");
     }
-  };
-
-  const mutation = useMutation(editNews);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    mutation.mutate();
   };
 
   return (
-    <div className="newsCreate">
-      <div className="insideSlider">
+    <div className="projectsCreate">
+      <div className="insideProject">
         <div className="sliderHeader">
-          <h4>Xəbər redaktə et</h4>
+          <h4>Layihə redaktə et</h4>
           <NavButton toNavigate={-1}>
             <span>
               <IoMdReturnLeft />
@@ -103,7 +101,7 @@ const NewsCreate = () => {
             <label htmlFor="logo">
               <div className="logo">
                 <span>
-                  <IoCloudUploadOutline />{" "}
+                  <IoCloudUploadOutline />
                 </span>
                 <span className="text">Şəkil</span>
               </div>
@@ -129,7 +127,7 @@ const NewsCreate = () => {
                   id="azText"
                   value={az_title}
                   onChange={(e) => setAz_title(e.target.value)}
-                  cols="30"
+                  cols="48"
                   rows="6"
                 ></textarea>
               </div>
@@ -140,7 +138,7 @@ const NewsCreate = () => {
                   id="enText"
                   value={en_title}
                   onChange={(e) => setEn_title(e.target.value)}
-                  cols="30"
+                  cols="48"
                   rows="6"
                 ></textarea>
               </div>
@@ -151,7 +149,7 @@ const NewsCreate = () => {
                   id="ruText"
                   value={ru_title}
                   onChange={(e) => setRu_title(e.target.value)}
-                  cols="30"
+                  cols="48"
                   rows="6"
                 ></textarea>
               </div>
@@ -162,9 +160,9 @@ const NewsCreate = () => {
                 <label htmlFor="azText">Məzmun</label>
                 <textarea
                   id="azText"
-                  value={az_text}
-                  onChange={(e) => setAzText(e.target.value)}
-                  cols="30"
+                  value={az_content}
+                  onChange={(e) => setAz_content(e.target.value)}
+                  cols="48"
                   rows="6"
                 ></textarea>
               </div>
@@ -173,9 +171,9 @@ const NewsCreate = () => {
                 <label htmlFor="enText">Content</label>
                 <textarea
                   id="enText"
-                  value={en_text}
-                  onChange={(e) => setEnText(e.target.value)}
-                  cols="30"
+                  value={en_content}
+                  onChange={(e) => setEn_content(e.target.value)}
+                  cols="48"
                   rows="6"
                 ></textarea>
               </div>
@@ -184,9 +182,9 @@ const NewsCreate = () => {
                 <label htmlFor="ruText">Содержание</label>
                 <textarea
                   id="ruText"
-                  value={ru_text}
-                  onChange={(e) => setRuText(e.target.value)}
-                  cols="30"
+                  value={ru_content}
+                  onChange={(e) => setRu_content(e.target.value)}
+                  cols="48"
                   rows="6"
                 ></textarea>
               </div>
@@ -201,4 +199,4 @@ const NewsCreate = () => {
   );
 };
 
-export default NewsCreate;
+export default ProjectsEdit;

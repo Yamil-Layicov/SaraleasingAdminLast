@@ -2,9 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { IoMdReturnLeft } from "react-icons/io";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
-import axios from "axios";
 import { useCategories } from "../categories/useCategories";
 import NavButton from "../../../ui/navButton/NavButton";
 import api from '../../../api/posts';
@@ -32,7 +30,7 @@ const ProductEdit = () => {
         setEn_description(response.data.en_description);
         setRu_description(response.data.ru_description);
         setCategory_id(response.data.category_id)
-        setImage(response?.data?.image);
+        setPreviousImage(response?.data?.image);
       } catch (error) {
         toast.error(error);
       }
@@ -42,7 +40,7 @@ const ProductEdit = () => {
   }, []);
 
 
-  const { isLoading, catalogCategories } = useCategories();
+  const { catalogCategories } = useCategories();
 
   const handleImage = (e) => {
     const file = e.target.files[0];
@@ -71,9 +69,11 @@ const ProductEdit = () => {
       formData.append("en_description", en_description);
       formData.append("name", name);
       formData.append("category_id", category_id);
-      formData.append("image", image);
+      if(image){
+        formData.append("image", image);
+      }
 
-      const response = await api.post("catalogs", formData);
+      const response = await api.post(`catalogs/${id}`, formData);
 
       if (response) {
         toast.success("elave olundu");

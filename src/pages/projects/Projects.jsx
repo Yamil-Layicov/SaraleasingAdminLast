@@ -1,24 +1,22 @@
-import "./products.scss";
+import "./projects.scss";
 import { useNavigate } from "react-router-dom";
 import { BiEditAlt } from "react-icons/bi";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import api from "../../../api/posts";
+import { toast } from "react-toastify";
+import api from "../../api/posts";
 import { useState } from "react";
-import TruncatedTextv2 from "../../../helpers/TrunctedTextv2.jsx";
-import ConfirmModal from "../../../ui/corfirmModal/ConfirmModal.jsx";
-import { useProducts } from "./useProducts.js";
-import toast from "react-hot-toast";
-import NavButton from "../../../ui/navButton/NavButton.jsx";
+import TruncatedTextv2 from "../../helpers/TrunctedTextv2.jsx";
+import ConfirmModal from "../../ui/corfirmModal/ConfirmModal.jsx";
+import NavButton from "../../ui/navButton/NavButton.jsx";
+import { useProjects } from "./useProjects.js";
 
-const AdminSlider = () => {
+const Projects = () => {
   const navigate = useNavigate();
   const [confirmationVisible, setConfirmationVisible] = useState(false);
   const [selectedItemId, setSelectedItemId] = useState(null);
 
-  const { catalogs } = useProducts();
-
-  
+  const { projects } = useProjects();
 
   const handleEdit = (id) => {
     navigate(`${id}`);
@@ -43,11 +41,11 @@ const AdminSlider = () => {
 
   const mutation = useMutation({
     mutationFn: (id) => {
-      return api.post(`catalogs/delete/${id}`);
+      return api.post(`projects/delete/${id}`);
     },
     onSuccess: () => {
       queryClient
-        .invalidateQueries(["catalogs"])
+        .invalidateQueries(["projects"])
         .then(toast.success("Uğurla silindi"));
     },
   });
@@ -55,10 +53,10 @@ const AdminSlider = () => {
   // if (isLoading) return <h1>Loading</h1>;
 
   return (
-    <div className="adminSlider">
+    <div className="projects">
       <div className="insideSlider">
         <div className="sliderHeader">
-          <h4>Məhsullar</h4>
+          <h4>Layihələr</h4>
           <NavButton toNavigate="yeni">
             <span>+</span>
             <span>Yeni</span>
@@ -69,23 +67,23 @@ const AdminSlider = () => {
             <tr>
               <th className="idTh">#</th>
               <th className="imgTh">Şəkil</th>
-              <th>Kateqoriya</th>
-              <th>Məhsul adı</th>
-              <th>Təsvir</th>
+              <th>Başlıq</th>
+              <th>Məzmun</th>
               <th>Əməliyyat</th>
             </tr>
           </thead>
           <tbody>
-            {catalogs?.data?.map((singleData, index) => (
+            {projects?.data?.data.map((singleData, index) => (
               <tr key={singleData.id}>
                 <td className="idTd">{index + 1}</td>
                 <td className="imgsTd">
                   <img src={singleData.image} alt="" />
                 </td>
-                <td className="contentTd">{singleData?.category?.az_name}</td>
-                <td className="contentTd">{singleData.name}</td>
                 <td className="contentTd">
-                  {TruncatedTextv2(singleData.az_description, 80)}
+                  {TruncatedTextv2(singleData.az_title, 80)}
+                </td>
+                <td className="contentTd">
+                  {TruncatedTextv2(singleData.az_content, 80)}
                 </td>
                 <td className="actionBtnsTd">
                   <div className="actionBtns">
@@ -113,4 +111,4 @@ const AdminSlider = () => {
   );
 };
 
-export default AdminSlider;
+export default Projects;

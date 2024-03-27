@@ -1,6 +1,5 @@
 import AdminLayout from "../pages/adminLayout/AdminLayout";
 import Dashboard from "../pages/dashboard/Dashboard";
-import Settings from "../pages/settings/Settings";
 import Messages from "../pages/messages/Messages";
 
 import AdminSliderLayout from "../pages/home/slider/adminSliderLayout/AdminSliderLayout";
@@ -43,6 +42,12 @@ import SocialsLayout from "../pages/socials/SocialsLayout";
 import Socials from "../pages/socials/Socials";
 import SocialCreate from "../pages/socials/socialCreate/SocialCreate";
 import SocialEdit from "../pages/socials/SocialEdit";
+import ProjectsLayout from "../pages/projects/ProjectsLayout";
+import Projects from "../pages/projects/Projects";
+import ProjectsCreate from "../pages/projects/projectsCreate/ProjectsCreate";
+import ProjectsEdit from "../pages/projects/ProjectsEdit";
+import Cooperation from '../pages/cooperation/Cooperation';
+
 
 const routes = [
   {
@@ -198,6 +203,28 @@ const routes = [
         ],
       },
       {
+        path: "/projects",
+        element: <ProjectsLayout />,
+        children: [
+          {
+            index: true,
+            element: <Projects />,
+          },
+          {
+            path: "yeni",
+            element: <ProjectsCreate />,
+          },
+          {
+            path: ":id",
+            element: <ProjectsEdit />,
+          },
+        ],
+      },
+      {
+       path: "cooperation",
+       element: <Cooperation/>
+      },
+      {
         path: "socials",
         element: <SocialsLayout />,
         children: [
@@ -214,10 +241,6 @@ const routes = [
             element: <SocialEdit />,
           },
         ],
-      },
-      {
-        path: "/settings",
-        element: <Settings />,
       },
       {
         path: "/Messages",
