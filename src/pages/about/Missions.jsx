@@ -54,7 +54,7 @@ const Missions = () => {
     }
 
     try {
-      await api.post("missions ", formData);
+      await api.post("missions", formData);
       toast.success("Redaktə olundu");
     } catch (error) {
       toast.error("Redaktə olumadı");

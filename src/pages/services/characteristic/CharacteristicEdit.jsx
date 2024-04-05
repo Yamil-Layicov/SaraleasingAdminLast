@@ -42,7 +42,7 @@ const CharacteristicCreate = () => {
 
   const createCategory = async () => {
     try {
-      await api.post("catalog-features", {
+      await api.post(`catalog-features/${id}`, {
         az_title,
         en_title,
         ru_title,

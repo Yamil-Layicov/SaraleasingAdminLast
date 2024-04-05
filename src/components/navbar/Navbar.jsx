@@ -79,7 +79,7 @@ const Navbar = () => {
                   <small>Qısa yol</small>
                   <div className="intoNavIcon">
                     <MdArrowOutward className="icon"/>
-                    <a target="_blank"  rel="noreferrer" href="https://saralizinq.az/">Sayta keçid</a>
+                    <a target="_blank"  rel="noreferrer" href="https://saraleasing.az/">Sayta keçid</a>
                   </div>
                 </motion.div>
               )}
