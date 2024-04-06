@@ -26,9 +26,10 @@ const NewsCreate = () => {
     const fetchSettings = async () => {
       try {
         const response = await api.get(`news/${id}`);
+        console.log(response?.data?.ru_text);
         setAzText(response.data.az_text);
         setEnText(response.data.en_text);
-        setRuText(response.ru_text);
+        setRuText(response.data.ru_text);
         setAz_title(response.data.az_title);
         setEn_title(response.data.en_title);
         setRu_title(response.data.ru_title);
