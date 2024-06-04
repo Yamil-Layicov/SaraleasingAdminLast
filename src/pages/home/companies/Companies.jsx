@@ -15,6 +15,7 @@ const Companies = () => {
   const [selectedItemId, setSelectedItemId] = useState(null);
 
   const { companies } = useCompanies();
+  console.log(companies);
 
   const handleDelete = (id) => {
     setSelectedItemId(id);
@@ -58,8 +59,8 @@ const Companies = () => {
             </button>
           </div>
           <div className="images">
-            {companies?.data?.data &&
-              companies?.data?.data.map((image) => (
+            {companies?.data &&
+              companies?.data?.map((image) => (
                 <div className="box" key={image.id}>
                   <div className="item">
                     <div className="delete-icon">

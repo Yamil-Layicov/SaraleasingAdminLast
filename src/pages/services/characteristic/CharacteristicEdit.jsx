@@ -90,7 +90,7 @@ const CharacteristicCreate = () => {
                     <option value="" disabled>
                       Məhsul seçin
                     </option>
-                    {catalogs?.data?.map((category) => (
+                    {catalogs?.data?.data?.map((category) => (
                       <option key={category?.id} value={category?.id}>
                         {category?.name}
                       </option>

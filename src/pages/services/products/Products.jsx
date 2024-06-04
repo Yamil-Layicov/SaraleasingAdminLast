@@ -76,7 +76,7 @@ const AdminSlider = () => {
             </tr>
           </thead>
           <tbody>
-            {catalogs?.data?.map((singleData, index) => (
+            {catalogs?.data?.data?.map((singleData, index) => (
               <tr key={singleData.id}>
                 <td className="idTd">{index + 1}</td>
                 <td className="imgsTd">

@@ -70,7 +70,7 @@ const Characteristic = () => {
           <option value="" disabled>
             Məhsul seçin
           </option>
-          {catalogs?.data?.map((category) => (
+          {catalogs?.data?.data?.map((category) => (
             <option key={category?.id} value={category?.id}>
               {category?.name}
             </option>
@@ -86,7 +86,7 @@ const Characteristic = () => {
             </tr>
           </thead>
           <tbody>
-            {catalogs?.data?.map((singleData) =>
+            {catalogs?.data?.data?.map((singleData) =>
               singleData?.features
                 .filter((single) =>
                   catalog_id ? single.catalog_id === catalog_id : true

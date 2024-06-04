@@ -8,7 +8,7 @@ export function useCompanies() {
     error,
   } = useQuery({
     queryKey: ["companies"],
-    queryFn: () => api.get("companies"),
+    queryFn: () => api.get("companies?all=true"),
   });
 
   return { isLoading, error, companies };
